@@ -30,6 +30,7 @@
     MKMapView *map = [[MKMapView alloc]initWithFrame:CGRectMake(0, 50, 320, 430)];
     map.mapType = MKMapTypeStandard;
     map.delegate = self;
+    NSLog(@"zhangbaolong");
     
    
 }
