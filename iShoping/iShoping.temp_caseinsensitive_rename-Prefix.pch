@@ -1,0 +1,68 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+//安全释放
+#define RELEASE_SAFETY(_Point) do{[_Point release];}while(0)
+
+//获取设备的物理高度
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+//获取设备的物理宽度
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+
+//获得view的高度
+#define ViewHeight self.view.bounds.size.height
+
+//获得view的宽度
+#define ViewWidth self.view.bounds.size.width
+
+//大众点评开放平台
+#define kAppKey @"13009273"
+#define kAppSecret @"c376813f9b3b482cb3c2b51a08d23406"
+//主页选择的城市
+#define SELECTED_CITY_KEY @"selectedCityDefault"
+//通知的唯一标识
+#define IDENTIFIERURL @"NotificationURL"
+//获取所有城市信息
+#define ALL_CITY_INFORMATION_URL @"http://api.dianping.com/v1/metadata/get_cities_with_businesses?appkey=13009273&sign=48EE2DFE05A6C8CD35D52EAAFAC52E66BDCA7AD8"
+
+
+
+//获取团购列表页面用户选择的区域，类别，城市信息,kPosition代表城市下属列表
+#define GROUP_SALES_SEARCHPOSITION_URL(__kCity__,__kPosition__,__kCategory__,__kSign__) [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@",@"http://api.dianping.com/v1/deal/find_deals?city=",__kCity__,@"&region=",__kPosition__,@"&category=",__kCategory__,@"&limit=15&appkey=13009273&sign=",__kSign__]
+//获取团购列表页面用户没有选择分区的
+#define GROUP_SALES_SEARCH_URL(__kCity__,__kCategory,__kSign__) [NSString stringWithFormat:@"%@%@%@%@%@%@",@"http://api.dianping.com/v1/deal/find_deals?city=",__kCity__,@"&category=",__kCategory__,@"&limit=15&appkey=13009273&sign=",__kSign__]
+
+//正在使用＊＊＊＊＊＊＊＊＊
+
+//获取(支持团购)城市的下属城市列表
+#define SUB_CITY_URL_LIST(__kCity__,__kSign__) [NSString stringWithFormat:@"%@%@%@%@",@"http://api.dianping.com/v1/metadata/get_regions_with_deals?city=",__kCity__,@"&appkey=13009273&sign=",__kSign__]
+
+//初始化城市或、电影或者酒店
+#define SUB_CITY_Cotegory_URL(__kCity__,__kSign__,__kCategory__,__kSort__,__kPage__)[NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@",@"http://api.dianping.com/v1/deal/find_deals?city=",__kCity__,@"&category=",__kCategory__,@"&page=",__kPage__,@"&sort=",__kSort__,@"&appkey=13009273&sign=",__kSign__]
+//支持所有分类,以及子分类
+#define CATEGORY_URL @"http://api.dianping.com/v1/metadata/get_categories_with_deals?appkey=13009273&sign=48EE2DFE05A6C8CD35D52EAAFAC52E66BDCA7AD8"
+
+//有关键字的请求,选择拉分区,选择了关键字
+#define ALL_FUNCTION_URL(__kCity__,__kSign__,__kCategory__,__kSort__,__kPage__,__kKeyword__,__kRrgion__) [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@",@"http://api.dianping.com/v1/deal/find_deals?city=",__kCity__,@"&category=",__kCategory__,@"&page=",__kPage__,@"&sort=",__kSort__,@"&region=",__kRrgion__,@"&keyword=",__kKeyword__,@"&appkey=13009273&sign=",__kSign__]
+//选择拉分区，没有选择关键字
+#define ALL_FUNCTION_REGION_URL(__kCity__,__kSign__,__kCategory__,__kSort__,__kPage__,__kRrgion__) [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@",@"http://api.dianping.com/v1/deal/find_deals?city=",__kCity__,@"&category=",__kCategory__,@"&page=",__kPage__,@"&sort=",__kSort__,@"&region=",__kRrgion__,@"&appkey=13009273&sign=",__kSign__]
+//选择拉关键字，没有选择分区
+#define ALL_FUNCTION_KEYWORD_URL(__kCity__,__kSign__,__kCategory__,__kSort__,__kPage__,__kKeyword__) [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@",@"http://api.dianping.com/v1/deal/find_deals?city=",__kCity__,@"&category=",__kCategory__,@"&page=",__kPage__,@"&sort=",__kSort__,@"&keyword=",__kKeyword__,@"&appkey=13009273&sign=",__kSign__]
+
+
+
